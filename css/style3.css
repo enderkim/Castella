@@ -1,0 +1,138 @@
+body {
+
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    padding: 0;
+
+}
+
+p{
+    font-size: 25px;
+    color: #be4c4c;
+    padding-top: 40px;
+    font-weight: bold;
+}
+.wrap {
+    margin: 550px;
+    margin-top: 50px;
+}
+
+.menu1 {
+    background-image: url(../img/UIJava-32.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+    background-color: #e4a4a4;
+
+}
+
+.menu2 {
+
+    background-image: url(../img/UIJava-33.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+    background-color: #e4a4a4;
+
+}
+
+.title {
+    width: 250px;
+    background-image: url(../img/UIJava-31.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px 65px;
+    background-color: #e4a4a4;
+    margin: 0;
+}
+
+nav ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+
+
+
+}
+
+.minimenu {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+nav ul li:hover {
+    background-color: #be4c4c;
+}
+
+nav ul li a.active {
+    color: #fff;
+    background-color: #333;
+    padding: 5px 10px;
+}
+
+.image-container {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    align-items: flex-start;
+    /* 이미지가 상단에 위치하도록 변경 */
+}
+
+.hover-image,
+.second-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.second-image {
+    opacity: 0;
+}
+
+.image-container:hover .hover-image {
+    opacity: 0;
+}
+
+
+.image-container:hover .second-image {
+    opacity: 1;
+    z-index: 2;
+}
+
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.droppable {
+
+    width: 1200px;
+    height: 600px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* background: linear-gradient(to bottom, #33ccff 0%, #0066ff 100%); */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    font-size: 2em;
+    text-align: center;
+}

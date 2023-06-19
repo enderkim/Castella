@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../css/style2.css">
+  
+</head>
+<body>
+
+  <section class="wrap">
+    <nav>
+
+        <ul>
+          <li class="title" onclick="goToIndex()"></li>
+            <div class="minimenu">
+                <li class="menu1"><a href="#"></a></li>
+                <li class="menu2"><a href="#"></a></li>
+            </div>
+        </ul>
+    </nav>
+    <div class="gamearea">
+        
+        <div class="section">
+            <div class="droppable" id="droppable"></div>
+        </div>
+        
+        </div>
+    </div>
+    
+       
+    </div>
+    <div class="section">
+        
+         
+
+  <div id="btn-wrap">
+    <button id="start-btn" class="btn-style">START</button> <!-- START 버튼 생성 -->
+    <button id="stop-btn" class="btn-style" style="display:none;">STOP</button> <!-- STOP 버튼 생성/ 처음에는 화면에서 숨김 처리 -->
+    <button id="nextpage-btn" class ="btn-style" style="display: none;">Next</button>
+  </div>
+        
+    </div>
+
+</section>
+ 
+
+  <script>
+
+function goToIndex(){
+            window.location.href = "Index.html";
+        }
+    var startBtn = document.getElementById("start-btn");
+var stopBtn = document.getElementById("stop-btn");
+// 새로 추가한 이동할 버튼을 참조하는 변수를 정의합니다.
+var finalPageBtn = document.getElementById("nextpage-btn");
+
+const colors = ["white", "yellow", "red"];
+const changeInterval = 3500;
+let currentIndex = 0;
+let timer;
+let changeBackground;
+
+function changeBackgroundColor() {
+  document.body.style.backgroundColor = colors[currentIndex];
+  currentIndex++;
+
+  if (currentIndex >= colors.length) {
+    currentIndex = 0;
+  }
+
+  changeBackground = setTimeout(changeBackgroundColor, changeInterval);
+}
+
+startBtn.onclick = function () {
+  startBtn.style.display = "none";
+
+  timer = setTimeout(function () {
+    stopBtn.style.display = "block";
+    clearTimeout(changeBackground);
+  }, 10000);
+
+  changeBackgroundColor();
+};
+
+stopBtn.onclick = function () { //스톱버튼을 클릭 시,
+  clearTimeout(timer);
+  clearTimeout(changeBackground);
+  //스타트 버튼 숨김
+  startBtn.style.display = "none";
+  //스톱 버튼 숨김
+  stopBtn.style.display = "none";
+  
+  finalPageBtn.style.display = "block";
+  currentIndex = 0;
+};
+
+// 새로운 페이지로 이동하는 버튼을 클릭하면 이동하도록 이벤트 리스너를 추가합니다.
+finalPageBtn.onclick = function () {
+  window.location.href = "finalpage.html";
+};
+
+  </script>
+
+</body>
+</html>

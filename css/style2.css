@@ -24,7 +24,7 @@ body {
 
 
 .menu1 {
-    background-image: url(../img/UIJava-32.png);
+    background-image: url(./img/UIJava-32.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px 50px;
@@ -34,7 +34,7 @@ body {
 
 .menu2 {
 
-    background-image: url(../img/UIJava-33.png);
+    background-image: url(./img/UIJava-33.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px 50px;
@@ -44,7 +44,7 @@ body {
 
 .title {
     width: 250px;
-    background-image: url(../img/UIJava-31.png);
+    background-image: url(./img/UIJava-31.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 250px 65px;
@@ -131,7 +131,7 @@ nav ul li a.active {
     width: 1200px;
     height: 600px;
     border-radius: 10px;
-    background-image: url(../img/java_final-34.png);
+    background-image: url(./img/java_final-34.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 500px 500px;

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>First Step - Ingredient</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+
+<body>
+    <section class="wrap">
+        <nav>
+
+            <ul>
+                <li class="title" onclick="goToIndex()"></li>
+                <div class="minimenu">
+                    <li class="menu1"><a href="#"></a></li>
+                    <li class="menu2"><a href="#"></a></li>
+                </div>
+            </ul>
+        </nav>
+        <div class="gamearea">
+            
+            <div class="section">
+                <div class="droppable" id="droppable"></div>
+            </div>
+            
+            </div>
+        </div>
+        <div class="items">
+            <div id="cat1" class="photo">
+                <img src="../img/java_midterm_item-08.png" alt="cat1" />
+            </div>
+            <div id="cat2" class="photo">
+                <img src="../img/java_midterm_item-09.png" alt="cat2" />
+            </div>
+            <div id="cat3" class="photo">
+                <img src="../img/java_midterm_item-11.png" alt="cat3" />
+            </div>
+            <div id="cat4" class="photo">
+                <img src="../img/java_midterm_item-13.png" alt="cat4" />
+            </div>
+            <div id="cat5" class="photo">
+                <img src="../img/java_midterm_item-20.png" alt="cat5" />
+            </div>
+            <div id="cat6" class="photo">
+                <img src="../img/java_midterm_item-21.png" alt="cat6" />
+            </div>
+        </div>
+        <div class="section">
+            
+            
+            <div class="nextbutton" onclick="goToNextPage()">Next</div>
+        </div>
+
+    </section>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <script>
+        function goToIndex(){
+            window.location.href = "Index.html";
+        }
+        function goToNextPage() {
+            console.log("work?");
+            window.location.href = "Oven.html";
+        }
+        $(".photo").draggable({
+
+            revert: "invalid"// 드래그가 실패했을 경우 revert 속성을 설정하여 원래 위치로 되돌아가게 합니다.
+
+        });
+        //droppable 클래스 안에 droppable
+        $(".droppable").droppable({
+            drop: function (event, ui) {
+                // 각 이미지의 상하단 가로 영역 (높이 중심)을 조사합니다.
+                const cat1_top = $("#cat1").offset().top;
+                const cat1_bottom = cat1_top + $("#cat1").outerHeight(true);
+                const cat2_top = $("#cat2").offset().top;
+                const cat2_bottom = cat2_top + $("#cat2").outerHeight(true);
+
+                const droppable_top = $(this).offset().top;
+                const droppable_bottom = droppable_top + $(this).outerHeight(true);
+
+                if (cat1_top >= droppable_top && cat1_bottom <= droppable_bottom) {
+
+                    $("#cat1").draggable("disable");
+                }
+                if (cat2_top >= droppable_top && cat2_bottom <= droppable_bottom) {
+                    $("#cat2").draggable("disable");
+                }
+                // 두 요소가 모두 droppable 영역 내에 있을 경우 배경색이 변합니다.
+                if (cat1_top >= droppable_top && cat1_bottom <= droppable_bottom &&
+                    cat2_top >= droppable_top && cat2_bottom <= droppable_bottom) {
+                    $('.nextbutton').addClass('complete');
+                    console.log("complete!");
+                    // 두 요소가 드롭되면 드래그를 비활성화합니다.
+
+                }
+            }
+        });
+
+    </script>
+    
+</body>
+
+</html>
